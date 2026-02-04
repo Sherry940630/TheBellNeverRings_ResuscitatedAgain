@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c25f465ae95324db5a8ae4f0538d48, type: 3}
+  m_Name: Electricity
+  m_EditorClassIdentifier: 
+  weaponControllerPrefab: {fileID: 748063906867344314, guid: b67ec324da58eaa42be40fde1ae03f36, type: 3}
+  prefab: {fileID: 8558130415043102838, guid: 631220fd9a8f5c14f91da60b337fdc1a, type: 3}
+  weaponDamage: 5
+  weaponSpeed: 2
+  weaponCooldown: 3
+  weaponPierce: 1

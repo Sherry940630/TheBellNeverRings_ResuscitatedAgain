@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c562be75f5029f419cb64213549e664, type: 3}
+  m_Name: Player7
+  m_EditorClassIdentifier: 
+  playerName: 7
+  playerSprite: {fileID: 0}
+  animatorController: {fileID: 0}
+  maxHealth: 100
+  moveSpeed: 5
+  startingWeapon: {fileID: 11400000, guid: 42bda3308e1fbe24cac29d81c7d950b0, type: 2}
+  manualSkill: {fileID: 1184964780007846382, guid: 5fc10a7e260f24f40baa37d19d754433, type: 3}

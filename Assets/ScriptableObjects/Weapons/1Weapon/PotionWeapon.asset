@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c25f465ae95324db5a8ae4f0538d48, type: 3}
+  m_Name: PotionWeapon
+  m_EditorClassIdentifier: 
+  weaponControllerPrefab: {fileID: 2964488417449819239, guid: 52dc963797ca02741bb9457cb884ddb5, type: 3}
+  prefab: {fileID: 8838818403133587679, guid: 68f1906c18b6f814db0f0cd1dfadbdbc, type: 3}
+  weaponDamage: 5
+  weaponSpeed: 2
+  weaponCooldown: 2
+  weaponPierce: 1
