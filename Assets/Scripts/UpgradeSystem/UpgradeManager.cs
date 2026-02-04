@@ -28,6 +28,24 @@ public class UpgradeManager : MonoBehaviour
 
     private void HandleLevelUp(int level)
     {
+
+        var validOptions = allUpgrades
+         .Select(u => new
+         {
+             upgrade = u,
+             target = u.FindTargetPlayer()
+         })
+         .Where(x => x.target != null)
+         .OrderBy(_ => Random.value)
+         .Take(3)
+         .ToList();
+
+        if (validOptions.Count <= 0)
+        {
+            Debug.Log("No valid upgrades available for current players. Skipping upgrade panel.");
+            return;
+        }
+
         Time.timeScale = 0f;
         upgradeUIPanel.SetActive(true);
         pausePanel.SetActive(true);
@@ -41,17 +59,6 @@ public class UpgradeManager : MonoBehaviour
             cg2.interactable = true;
             cg2.blocksRaycasts = true;
         }
-
-        var validOptions = allUpgrades
-         .Select(u => new
-         {
-             upgrade = u,
-             target = u.FindTargetPlayer()
-         })
-         .Where(x => x.target != null)
-         .OrderBy(_ => Random.value)
-         .Take(3)
-         .ToList();
 
         foreach (var btn in buttons)
         {

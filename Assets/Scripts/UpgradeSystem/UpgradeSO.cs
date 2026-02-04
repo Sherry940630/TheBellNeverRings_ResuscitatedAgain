@@ -29,11 +29,11 @@ public class UpgradeSO : ScriptableObject
 
         bool hasUpgrade = data.upgradeLevels.ContainsKey(this);
 
-        // 新武器：可以出現第一次
+        //新武器：可以出現第一次
         if (type == UpgradeType.NewWeapon && !hasUpgrade)
             return true;
 
-        // 升級：已經拿過才能再出現
+        //升級：已經拿過才能再出現
         if (type == UpgradeType.WeaponUpgrade && hasUpgrade)
             return true;
 

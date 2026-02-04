@@ -129,12 +129,6 @@ public class PlayerMovementScript : MonoBehaviour
                 rb.velocity = Vector2.zero; //撞到了，停止移動
                 return;
             }
-            if(TouchAirWall(targetPos))
-            {
-                rb.velocity = Vector2.zero; //撞到了，停止移動
-                Debug.Log("Touched Air Wall");
-                return;
-            }
         }
         rb.velocity = moveDir * movingSpeed;
     }
