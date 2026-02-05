@@ -19,6 +19,11 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] private Transform groundCheckPoint;
     [SerializeField] private float groundCheckRadius = 0.3f;
 
+    [Header("Contact Damage")]
+    [SerializeField] private float contactDamageInterval = 1f;
+
+    private float nextDamageTime = 0f;
+
     private Rigidbody2D rb;
 
     [HideInInspector] public Vector2 lookDir = Vector2.right;
@@ -235,6 +240,33 @@ public class PlayerMovementScript : MonoBehaviour
             runtimeData.currentHealth -= enemy.enemyData.Damage;
             Debug.Log($"{runtimeData.baseData.playerName} Health: {runtimeData.currentHealth}");
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D enem)
+    {
+        if (enem == null) return;
+
+        EnemyController enemy = enem.GetComponent<EnemyController>();
+        if (enemy == null) return;
+
+        if (Time.time < nextDamageTime) return;
+
+        if (PlayerManager.Instance == null) return;
+
+        int playerIndex = PlayerManager.Instance.players.IndexOf(gameObject);
+        if (playerIndex < 0 || playerIndex >= PlayerManager.Instance.runtimeDataList.Count)
+            return;
+
+        PlayerRunTimeData runtimeData =
+            PlayerManager.Instance.runtimeDataList[playerIndex];
+
+        if (runtimeData.isInvincible) return;
+
+        runtimeData.currentHealth -= enemy.enemyData.Damage;
+        Debug.Log($"{runtimeData.baseData.playerName} Health: {runtimeData.currentHealth}");
+
+        //設定下一次可扣血時間
+        nextDamageTime = Time.time + contactDamageInterval;
     }
 
 #if UNITY_EDITOR

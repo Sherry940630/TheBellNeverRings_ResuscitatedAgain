@@ -4,6 +4,7 @@ using System;
 public class EnemyStat : MonoBehaviour
 {
     public static event Action<EnemyStat> OnEnemyKilled;
+    public event Action<float> OnHealthChanged;
     public EnemyScriptableObject enemyData;
     public GameObject killEffectPrefab; //bloodthirst±Ù±þ¯S®Ä
 
@@ -30,6 +31,7 @@ public class EnemyStat : MonoBehaviour
     public void TakeDamage(float dmg, string sourceTag)
     {
         currentHealth -= dmg;
+        OnHealthChanged?.Invoke(currentHealth);
         healthBar.SetHealth(currentHealth, enemyData.MaxHealth);
 
         if (currentHealth <= 0)

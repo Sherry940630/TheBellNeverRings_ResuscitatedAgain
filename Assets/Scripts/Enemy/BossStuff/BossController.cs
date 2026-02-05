@@ -5,13 +5,22 @@ using UnityEngine;
 public class BossController : MonoBehaviour
 {
     [Header("Settings")]
-    public GameObject minionPrefab;       // 丟出去的小怪 Prefab
-    public float spawnInterval = 3f;      // 每幾秒丟一次
-    public float launchForce = 10f;       // 拋射的力道（高度）
+    public GameObject minionPrefab; 
+    public float spawnInterval = 3f; //每幾秒丟一次
+    public float launchForce = 10f; 
+    public BossHealthBar bossHealthBar;
 
     private float nextSpawnTime;
+    private EnemyStat stat;
 
-    void Update()
+    private void Start()
+    {
+        stat = GetComponent<EnemyStat>();
+        bossHealthBar.Bind(stat);
+        stat.OnHealthChanged += bossHealthBar.UpdateHealth;
+    }
+
+    private void Update()
     {
         // 確保遊戲沒暫停且 Boss 已經出現
         if (Time.time >= nextSpawnTime)
@@ -21,7 +30,7 @@ public class BossController : MonoBehaviour
         }
     }
 
-    void LaunchMinion()
+    private void LaunchMinion()
     {
         if (PlayerManager.activePlayer == null || minionPrefab == null) return;
 
@@ -31,5 +40,18 @@ public class BossController : MonoBehaviour
         // 2. 獲取拋物線腳本並給予目標位置
         ParabolicLaunch projectile = minion.AddComponent<ParabolicLaunch>();
         projectile.Setup(PlayerManager.activePlayer.transform, launchForce);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+        if (PlayerManager.Instance == null) return;
+
+        PlayerManager.Instance.TryApplyDamage(
+            other.gameObject,
+            stat.enemyData.Damage,
+            out float newHP
+        );
     }
 }
