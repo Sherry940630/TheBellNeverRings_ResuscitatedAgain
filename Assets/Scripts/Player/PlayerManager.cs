@@ -205,9 +205,9 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("Playing Hurt Sound");
         AudioManager.Instance?.PlaySFX
         (
-            AudioManager.Instance.playerHurt,
+            AudioManager.Instance.playerHurtAudio,
             volume: 0.1f,
-            pitch: Random.Range(2f, 2.2f)
+            pitch: 1f
         );
         return true;
     }

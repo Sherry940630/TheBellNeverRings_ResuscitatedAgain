@@ -46,8 +46,9 @@ public class UpgradeManager : MonoBehaviour
             return;
         }
 
-        PauseManager.Instance.Pause();
+        PauseManager.Instance.Pause(PauseReason.Upgrade);
         upgradeUIPanel.SetActive(true);
+        pausePanel.SetActive(true);
 
         var cg = upgradeUIPanel.GetComponent<CanvasGroup>();
         var cg2 = pausePanel.GetComponent<CanvasGroup>();
@@ -82,6 +83,7 @@ public class UpgradeManager : MonoBehaviour
         upgrade.Apply(target);
 
         upgradeUIPanel.SetActive(false);
-        PauseManager.Instance.Resume();
+        pausePanel.SetActive(false);
+        PauseManager.Instance.Resume(PauseReason.Upgrade);
     }
 }

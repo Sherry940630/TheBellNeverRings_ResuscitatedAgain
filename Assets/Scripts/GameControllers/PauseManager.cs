@@ -5,7 +5,7 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     public static PauseManager Instance { get; private set; }
-
+    public PauseReason CurrentReason { get; private set; } = PauseReason.None;
     public bool IsPaused { get; private set; }
 
     private void Awake()
@@ -18,23 +18,20 @@ public class PauseManager : MonoBehaviour
         Instance = this;
     }
 
-    public void Pause()
+    public void Pause(PauseReason reason)
     {
-        if (IsPaused) return;
+        //if (IsPaused) return;
         IsPaused = true;
+        CurrentReason = reason;
         Time.timeScale = 0f;
     }
 
-    public void Resume()
+    public void Resume(PauseReason reason)
     {
-        if (!IsPaused) return;
-        IsPaused = false;
-        Time.timeScale = 1f;
-    }
+        if (!IsPaused || CurrentReason != reason) return;
 
-    public void Toggle()
-    {
-        if (IsPaused) Resume();
-        else Pause();
+        IsPaused = false;
+        CurrentReason = PauseReason.None;
+        Time.timeScale = 1f;
     }
 }

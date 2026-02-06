@@ -9,7 +9,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource sfxSource;
 
     [Header("SFX Clips")]
-    public AudioClip playerHurt;
+    public AudioClip playerHurtAudio;
+    public AudioClip bloodThirstAudio;
     //public AudioClip buttonClicked;
 
     private void Awake()

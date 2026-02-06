@@ -150,6 +150,14 @@ public class Bloodthirst : SkillBehavior
         if (trail != null)
         {
             trail.time = 0.05f; //Àþ¶¡¦¬µu
+
+            Debug.Log("Playing BloodThirst Sound");
+            AudioManager.Instance?.PlaySFX
+            (
+                AudioManager.Instance.bloodThirstAudio,
+                volume: 0.1f,
+                pitch: 1f
+            );
         }
 
     }

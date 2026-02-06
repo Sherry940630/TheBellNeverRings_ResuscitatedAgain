@@ -16,6 +16,12 @@ public class PauseMenuManager : MonoBehaviour
     {
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
+            if (PauseManager.Instance.IsPaused &&
+            PauseManager.Instance.CurrentReason != PauseReason.PauseMenu)
+            {
+                return;
+            }
+
             if (!PauseManager.Instance.IsPaused)
             {
                 OpenPauseMenu();
@@ -30,7 +36,7 @@ public class PauseMenuManager : MonoBehaviour
     public void OpenPauseMenu()
     {
         Debug.Log("Opened Pause Menu.");
-        PauseManager.Instance.Pause();
+        PauseManager.Instance.Pause(PauseReason.PauseMenu);
         ShowPanel(pauseMenuPanel);
     }
 
@@ -69,10 +75,10 @@ public class PauseMenuManager : MonoBehaviour
             Debug.Log(currentPanel + "Is Set Inactive.");
             currentPanel.SetActive(false);
         }
-        currentPanel = pauseMenuPanel;
+        currentPanel = null;
 
         //統一解除暫停
-        PauseManager.Instance.Resume();
+        PauseManager.Instance.Resume(PauseReason.PauseMenu);
     }
 }
 

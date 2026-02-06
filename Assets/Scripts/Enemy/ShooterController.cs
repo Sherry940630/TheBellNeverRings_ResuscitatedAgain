@@ -39,6 +39,12 @@ public class ShooterController : MonoBehaviour
         Vector2 dir =
             (player.position - transform.position).normalized;
 
+        EnemyController ec = GetComponent<EnemyController>();
+        if (ec != null && ec.IsReversed)
+        {
+            dir = -dir;
+        }
+
         GameObject bullet =
             Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
