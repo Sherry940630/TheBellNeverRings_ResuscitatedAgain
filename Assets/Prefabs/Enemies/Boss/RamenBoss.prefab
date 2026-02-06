@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 7760799529178743137}
   - component: {fileID: -6123752193922505587}
   - component: {fileID: -2875332778818318445}
+  - component: {fileID: 7810090379611282361}
   m_Layer: 6
   m_Name: RamenBoss
   m_TagString: Enemy
@@ -280,9 +281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb8c61e85d367b4785ef97efe8c8285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minionPrefab: {fileID: 8985519912158333093, guid: c579a859be07ae8409fe5b89092512d5, type: 3}
-  spawnInterval: 3
-  launchForce: 10
   bossHealthBar: {fileID: 6740278954430441312}
 --- !u!95 &7760799529178743137
 Animator:
@@ -398,6 +396,25 @@ PolygonCollider2D:
       - {x: 0.35535973, y: -0.2955851}
       - {x: 0.38510168, y: -0.3190226}
   m_UseDelaunayMesh: 0
+--- !u!114 &7810090379611282361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4730875344094802430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 574e70c116c9e50428a9f81f0001728f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minionConfigs:
+  - minionPrefab: {fileID: 8985519912158333093, guid: c579a859be07ae8409fe5b89092512d5, type: 3}
+    spawnInterval: 3
+    launchForce: 10
+  - minionPrefab: {fileID: 8985519912158333093, guid: dceb8bbf260e3bd4ab53c4437c213dac, type: 3}
+    spawnInterval: 7
+    launchForce: 7
 --- !u!1 &8029817161472168570
 GameObject:
   m_ObjectHideFlags: 0

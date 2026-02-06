@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 7250295250596413511}
   m_Layer: 3
   m_Name: Player7
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,12 +140,16 @@ MonoBehaviour:
   solidObjectsLayer:
     serializedVersion: 2
     m_Bits: 536870912
+  airWallLayer:
+    serializedVersion: 2
+    m_Bits: 0
   collisionCheckRadius: 0.2
   bgLayer:
     serializedVersion: 2
     m_Bits: 2147483648
   groundCheckPoint: {fileID: 6556825385554710666}
   groundCheckRadius: 0.15
+  contactDamageInterval: 0.5
   lookDir: {x: 1, y: 0}
   moveDir: {x: 0, y: 0}
   lastMovedVector: {x: 0, y: 0}
