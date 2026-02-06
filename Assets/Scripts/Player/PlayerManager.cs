@@ -159,6 +159,8 @@ public class PlayerManager : MonoBehaviour
 
     public bool TryApplyDamage(GameObject player, float damage, out float newHealth)
     {
+        Debug.Log("TryApplyDamage Function Started");
+
         newHealth = -1f;
 
         if (player == null)
@@ -190,7 +192,7 @@ public class PlayerManager : MonoBehaviour
 
         if (runtime.isInvincible)
         {
-            Debug.Log($"{player.name} is invincible. Damage ignored.");
+            Debug.Log($"{player.name} is invincible. Damage negated.");
             newHealth = runtime.currentHealth;
             return false;
         }
@@ -198,6 +200,15 @@ public class PlayerManager : MonoBehaviour
         runtime.currentHealth = Mathf.Max(0f, runtime.currentHealth - damage);
 
         newHealth = runtime.currentHealth;
+
+        //播放受傷音效
+        Debug.Log("Playing Hurt Sound");
+        AudioManager.Instance?.PlaySFX
+        (
+            AudioManager.Instance.playerHurt,
+            volume: 0.1f,
+            pitch: Random.Range(2f, 2.2f)
+        );
         return true;
     }
 

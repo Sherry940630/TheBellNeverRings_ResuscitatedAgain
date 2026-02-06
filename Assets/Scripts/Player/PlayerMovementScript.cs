@@ -209,6 +209,8 @@ public class PlayerMovementScript : MonoBehaviour
         return (Physics2D.OverlapCircle(targetPos, collisionCheckRadius, airWallLayer) == null);
     }
 
+    /*
+
     private void OnTriggerEnter2D(Collider2D enem)
     {
         if (enem == null) return;
@@ -241,6 +243,7 @@ public class PlayerMovementScript : MonoBehaviour
             Debug.Log($"{runtimeData.baseData.playerName} Health: {runtimeData.currentHealth}");
         }
     }
+    */
 
     private void OnTriggerStay2D(Collider2D enem)
     {
@@ -262,7 +265,11 @@ public class PlayerMovementScript : MonoBehaviour
 
         if (runtimeData.isInvincible) return;
 
-        runtimeData.currentHealth -= enemy.enemyData.Damage;
+        if (PlayerManager.Instance.TryApplyDamage(gameObject, enemy.enemyData.Damage, out _))
+        {
+            nextDamageTime = Time.time + contactDamageInterval;
+        }
+
         Debug.Log($"{runtimeData.baseData.playerName} Health: {runtimeData.currentHealth}");
 
         //設定下一次可扣血時間
