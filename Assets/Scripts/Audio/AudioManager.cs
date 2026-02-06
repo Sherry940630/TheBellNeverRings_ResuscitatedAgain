@@ -29,6 +29,7 @@ public class AudioManager : MonoBehaviour
         if (clip == null) return;
 
         sfxSource.pitch = pitch;
-        sfxSource.PlayOneShot(clip, volume);
+        float finalVolume = volume * SettingsManager.Instance.volumeMultiplier;
+        sfxSource.PlayOneShot(clip, finalVolume);
     }
 }
