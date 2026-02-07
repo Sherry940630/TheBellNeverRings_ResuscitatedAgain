@@ -27,13 +27,14 @@ public class PlayerAnimator : MonoBehaviour
         if (movement == null)
             return;
 
+        SpriteDirectionChecker();
+
         Vector2 moveDir = movement.moveDir;
 
         
         if (movement.moveDir.x != 0 || movement.moveDir.y != 0) 
         { 
             anim.SetBool("IsRunning", true); 
-            SpriteDirectionChecker(); 
         } 
         else 
         { 

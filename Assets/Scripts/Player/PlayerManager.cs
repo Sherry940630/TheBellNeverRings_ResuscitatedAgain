@@ -118,22 +118,37 @@ public class PlayerManager : MonoBehaviour
         var rb = player.GetComponent<Rigidbody2D>();
         if (move != null)
         {
-            move.enabled = isActive;
+            move.allowPlayerInput = isActive;
 
-            // 如果是要停用控制，強制將移動向量歸零
+            //如果是要停用控制，強制將移動向量歸零
             if (!isActive)
             {
                 move.moveDir = Vector2.zero;
             }
         }
 
-        // 強制將物理速度歸零，防止角色滑行
+        /*強制將物理速度歸零，防止角色滑行*/
         if (!isActive && rb != null)
         {
             rb.velocity = Vector2.zero;
         }
 
-            foreach (WeaponController weapon in player.GetComponentsInChildren<WeaponController>())
+
+        //inactive自動follow
+        var follow = player.GetComponent<InactiveFollowController>();
+        if (follow != null)
+        {
+            follow.enabled = !isActive;
+        }
+
+        //inactive免傷
+        if (TryGetRuntimeData(player, out PlayerRunTimeData data))
+        {
+            data.isInvincible = !isActive;
+        }
+
+
+        foreach (WeaponController weapon in player.GetComponentsInChildren<WeaponController>())
             weapon.enabled = isActive;
 
         var playerCam = player.GetComponentInChildren<Camera>();

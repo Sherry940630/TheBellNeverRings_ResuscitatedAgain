@@ -15,6 +15,6 @@ MonoBehaviour:
   allowedPlayerNames:
   - Player1
   upgradeName: Lv.1 Rotation Matrix
-  icon: {fileID: 545709786, guid: 7aeb11920fa886142acc23623755c78e, type: 3}
+  icon: {fileID: 9131256632597455906, guid: 0f15e3ba9a3d33349ad0c1900a3358c0, type: 3}
   type: 0
   weaponToGrant: {fileID: 11400000, guid: 8cb7fdb177f8b4a4d8a26093289d9e34, type: 2}

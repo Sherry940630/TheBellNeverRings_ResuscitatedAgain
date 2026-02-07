@@ -98,8 +98,8 @@ GameObject:
   - component: {fileID: 504821748250222961}
   - component: {fileID: 4722033474127398833}
   - component: {fileID: 85867916713510583}
-  - component: {fileID: -971747849960021045}
   - component: {fileID: 5762127175671237756}
+  - component: {fileID: 5407453242752710721}
   m_Layer: 6
   m_Name: EggSevenMinions
   m_TagString: Enemy
@@ -202,8 +202,24 @@ MonoBehaviour:
   - itemName: PurpleGem(Exp)
     dropRate: 33
     itemPrefab: {fileID: 6147143336801084208, guid: ea8fc2b0a19b4134f9c0cda61967fcb3, type: 3}
---- !u!58 &-971747849960021045
-CircleCollider2D:
+--- !u!114 &5762127175671237756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8985519912158333093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35a35f6272fbec44961d8eccdfcdfc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4615044295733317537, guid: f318ed8905d57b74dadc066c5bf05ce2, type: 3}
+  shootInterval: 2
+  bulletSpeed: 10
+  bulletDamage: 7
+--- !u!60 &5407453242752710721
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -234,25 +250,26 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.030166194, y: 0.120664924}
-  serializedVersion: 2
-  m_Radius: 0.13104355
---- !u!114 &5762127175671237756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8985519912158333093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d35a35f6272fbec44961d8eccdfcdfc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4615044295733317537, guid: f318ed8905d57b74dadc066c5bf05ce2, type: 3}
-  shootInterval: 2
-  bulletSpeed: 10
-  bulletDamage: 7
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.55660975, y: 0.56524557}
+      - {x: 0.5403502, y: 1.1268286}
+      - {x: 0.17418283, y: 1.2776033}
+      - {x: -0.5863618, y: 0.896883}
+      - {x: -0.56056917, y: 0.47013605}
+      - {x: -0.23958164, y: 0.32861257}
+      - {x: 0.27065605, y: 0.20559627}
+  m_UseDelaunayMesh: 0
 --- !u!1001 &4869172044131821959
 PrefabInstance:
   m_ObjectHideFlags: 0

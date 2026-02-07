@@ -32,7 +32,10 @@ public class EnemyStat : MonoBehaviour
     {
         currentHealth -= dmg;
         OnHealthChanged?.Invoke(currentHealth);
-        healthBar.SetHealth(currentHealth, enemyData.MaxHealth);
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(currentHealth, enemyData.MaxHealth);
+        }
 
         if (currentHealth <= 0)
         {

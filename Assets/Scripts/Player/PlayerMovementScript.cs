@@ -31,6 +31,7 @@ public class PlayerMovementScript : MonoBehaviour
     [HideInInspector] public Vector2 lastMovedVector = Vector2.right; // default face direction is right
     [HideInInspector] public float lastHorizontalVector = 0f;
     [HideInInspector] public float lastVerticalVector = 0f;
+    [HideInInspector] public bool allowPlayerInput = true;
 
     private PlayerInputSubscription inputSubscription;
 
@@ -67,6 +68,9 @@ public class PlayerMovementScript : MonoBehaviour
     /// </summary>
     private void HandleInput()
     {
+        if (!allowPlayerInput)
+            return;
+
         Vector2 rawInput = Vector2.zero;
 
         if (inputSubscription != null)
@@ -247,6 +251,8 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D enem)
     {
+        if (gameObject != PlayerManager.activePlayer) return;
+
         if (enem == null) return;
 
         EnemyController enemy = enem.GetComponent<EnemyController>();

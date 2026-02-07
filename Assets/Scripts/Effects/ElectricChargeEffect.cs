@@ -47,6 +47,7 @@ public class ElectricChargeEffect : ContinuousDamageEffect
 
     void ZapAndSpread()
     {
+        Debug.Log($"{ownerStat.name} 正在受到電力跳彈傷害: {damagePerTick}");
         ownerStat.TakeDamage(damagePerTick);
 
         EnemyStat[] enemies = FindObjectsOfType<EnemyStat>();

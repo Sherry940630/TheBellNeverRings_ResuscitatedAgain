@@ -45,7 +45,7 @@ public class BossCountdown : MonoBehaviour
 
         CamMovement.Instance.SmoothZoom
         (
-            targetValue: 6f,   //OrthographicSize預設是3f
+            targetValue: 8f,   //OrthographicSize預設是4.5f
             duration: 1.2f      //拉遠時間
         );
 

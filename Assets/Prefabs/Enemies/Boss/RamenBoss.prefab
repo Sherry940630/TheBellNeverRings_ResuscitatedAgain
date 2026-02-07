@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: -6123752193922505587}
   - component: {fileID: -2875332778818318445}
   - component: {fileID: 7810090379611282361}
+  - component: {fileID: -3980685403235081345}
   m_Layer: 6
   m_Name: RamenBoss
   m_TagString: Enemy
@@ -415,6 +416,33 @@ MonoBehaviour:
   - minionPrefab: {fileID: 8985519912158333093, guid: dceb8bbf260e3bd4ab53c4437c213dac, type: 3}
     spawnInterval: 7
     launchForce: 7
+--- !u!50 &-3980685403235081345
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4730875344094802430}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &8029817161472168570
 GameObject:
   m_ObjectHideFlags: 0

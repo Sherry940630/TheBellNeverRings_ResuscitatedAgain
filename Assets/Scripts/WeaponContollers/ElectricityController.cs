@@ -12,7 +12,10 @@ public class ElectricityController : WeaponController
     { 
         base.Attack(); 
         EnemyStat nearest = FindNearestEnemy(); 
-        if (nearest == null) return; 
+        if (nearest == null) return;
+
+        Debug.Log($"電力攻擊目標: {nearest.name}");
+
         nearest.TakeDamage(weaponData.WeaponDamage); //Lightning Visual
         LightningBoltAnimation bolt = Instantiate(lightningPrefab) .GetComponent<LightningBoltAnimation>(); 
         bolt.Setup(transform.position, nearest.transform.position); //Splatter Effect (spawn once + auto destroy)
